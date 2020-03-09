@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/tlb_web"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="3dip"
+        android:background="@color/colorPrimary">
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/ib_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:padding="5dip"
+            android:src="@drawable/ic_close_white_24dp"/>
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/ib_previous"
+            android:layout_toEndOf="@+id/ib_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:padding="5dip"
+            android:src="@drawable/ic_arrow_back_white_24dp"/>
+        <TextView
+            android:id="@+id/tv_title"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ib_previous"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginEnd="10dip"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <WebView
+            android:id="@+id/wv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ProgressBar
+            android:id="@+id/pb_progress"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/ic_horizontal_progress"
+            android:max="100"
+            android:layout_width="match_parent"
+            android:layout_height="3dip" />
+    </FrameLayout>
+
+</LinearLayout>

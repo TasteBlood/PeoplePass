@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="setModel"
+            type="com.cloudcreativity.peoplepass.main.SettingModel" />
+        <import type="android.view.View" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tlb_setting"
+            android:background="@color/colorPrimary"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+            app:title="@string/str_setting"
+            android:elevation="3dip"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+        <!--content widgets-->
+        <FrameLayout
+            android:background="@color/white"
+            android:padding="15dip"
+            android:onClick="@{()->setModel.onClearCacheClick()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp14"
+                android:text="@string/str_app_cache"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@{setModel.cache}"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <FrameLayout
+            android:background="@color/white"
+            android:padding="15dip"
+            android:onClick="@{()->setModel.onUpdateClick()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp14"
+                android:text="@string/str_app_version"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@{setModel.version}"
+                android:textSize="@dimen/sp14"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <FrameLayout
+            android:background="@color/white"
+            android:padding="13dip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp14"
+                android:text="@string/str_imei"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content"
+                android:text="@{setModel.imei}"
+                android:textSize="@dimen/sp14"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="@{setModel.isLogin?View.VISIBLE:View.GONE}"
+            android:background="?android:attr/listDivider" />
+
+        <FrameLayout
+            android:background="@color/white"
+            android:padding="13dip"
+            android:onClick="@{()->setModel.onModifyPwdClick()}"
+            android:visibility="@{setModel.isLogin?View.VISIBLE:View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp14"
+                android:text="@string/str_modify_pwd"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/ic_navigate_next_gray_24dp"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <FrameLayout
+            android:background="@color/white"
+            android:padding="13dip"
+            android:onClick="@{()->setModel.onAppCodeClick()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp14"
+                android:text="@string/str_app_download"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/ic_navigate_next_gray_24dp"/>
+        </FrameLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <FrameLayout
+            android:background="@color/white"
+            android:padding="13dip"
+            android:onClick="@{()->setModel.onVersionDescClick()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp14"
+                android:text="@string/str_version_desc"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/ic_navigate_next_gray_24dp"/>
+        </FrameLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Button"
+            android:visibility="@{setModel.isLogin?View.VISIBLE:View.GONE}"
+            android:textColor="@color/white"
+            android:text="@string/str_exit_login"
+            android:onClick="@{()->setModel.onExitLoginClick()}"
+            android:textSize="@dimen/sp16"
+            android:layout_margin="15dip"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="loginModel"
+            type="com.cloudcreativity.peoplepass.loginAndRegister.LoginModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tlb_login"
+            android:background="@color/colorPrimary"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+            app:title="@string/str_login"
+            android:elevation="3dip"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+        <!--content widgets-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_phone"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip"
+            android:layout_marginTop="10dip"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/Theme.AppCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/str_input_phone"
+                android:drawableStart="@drawable/ic_phone_android_gray_24dp"
+                android:drawablePadding="10dip"
+                android:text="@={loginModel.phone}"
+                android:maxLength="11"
+                android:padding="10dip"
+                android:inputType="number"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_pwd"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/Theme.AppCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/str_input_password"
+                android:drawableStart="@drawable/ic_https_gray_24dp"
+                android:drawablePadding="10dip"
+                android:text="@={loginModel.pwd}"
+                android:padding="10dip"
+                android:inputType="textPassword"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:theme="@style/Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp16"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip"
+            android:layout_marginTop="20dip"
+            android:onClick="@{()->loginModel.onLoginClick()}"
+            android:textColor="@color/white"
+            android:text="@string/str_login"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip">
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_new_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:textSize="@dimen/sp14"
+                android:onClick="@{()->loginModel.onRegisterClick()}"
+                android:text="@string/str_new_user"/>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_forget_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="10dip"
+                android:textSize="@dimen/sp14"
+                android:onClick="@{()->loginModel.onForgetClick()}"
+                android:text="@string/str_forgetpwd_extend"/>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

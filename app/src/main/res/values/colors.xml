@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03a9f4</color>
+    <color name="colorPrimaryDark">#0288d1</color>
+    <color name="colorAccent">#f9a053</color>
+    <color name="accentDark">#c7742c</color>
+    <color name="white">#ffffff</color>
+    <color name="gray_313131">#313131</color>
+    <color name="gray_414141">#414141</color>
+    <color name="gray_515151">#515151</color>
+    <color name="gray_717171">#717171</color>
+    <color name="gray_919191">#919191</color>
+    <color name="gray_d1d1d1">#d1d1d1</color>
+    <color name="gray_f1f1f1">#e5e5e5</color>
+    <color name="transparent">#00ffffff</color>
+
+    <color name="black_overlay">#66000000</color>
+
+
+    <!--下拉刷新的颜色-->
+    <color name="refresh_red">#ef4436</color>
+    <color name="refresh_blue">#00aaf6</color>
+    <color name="refresh_green">#32bc50</color>
+
+</resources>

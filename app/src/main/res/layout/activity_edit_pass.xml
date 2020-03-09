@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="editPassModel"
+            type="com.cloudcreativity.peoplepass.pass.EditPassModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tlb_pass"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        android:elevation="3dip"
+        app:title="@string/str_pass_edit" tools:targetApi="lollipop" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:background="@color/white"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_pass_title"/>
+                <EditText
+                    android:id="@+id/et_pass_title"
+                    android:layout_marginStart="5dip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="text"
+                    android:textSize="@dimen/sp14"
+                    android:hint="@string/str_required_bracket"
+                    android:padding="5dip"
+                    android:text="@={editPassModel.title}"
+                    android:importantForAutofill="no" tools:targetApi="o"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:layout_marginTop="5dip"
+                android:background="@color/white"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_pass_location"/>
+                <EditText
+                    android:id="@+id/et_pass_location"
+                    android:layout_marginStart="5dip"
+                    android:layout_width="0dip"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:background="@null"
+                    android:textSize="@dimen/sp14"
+                    android:hint="@string/str_required_bracket"
+                    android:text="@={editPassModel.place}"
+                    android:padding="5dip"
+                    android:importantForAutofill="no" tools:targetApi="o"/>
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->editPassModel.onLocationClick()}"
+                    android:padding="2dip"
+                    android:src="@drawable/ic_pin_drop_blue_24dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:layout_marginTop="5dip"
+                android:background="@color/white"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="附加图片(最多9张)"/>
+                <com.cloudcreativity.peoplepass.utils.ScrollViewInnerGridView
+                    android:layout_marginTop="5dip"
+                    android:id="@+id/gv_pass_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:adapter="@{editPassModel.adapter}"
+                    android:horizontalSpacing="5dip"
+                    android:verticalSpacing="5dip"
+                    android:numColumns="4"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:layout_marginTop="5dip"
+                android:background="@color/white"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_pass_voice"/>
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:theme="@style/Button"
+                    android:textSize="@dimen/sp16"
+                    android:onClick="@{()->editPassModel.onRecordClick()}"
+                    android:onLongClick="@{()->editPassModel.onRecordLongClick()}"
+                    android:drawableEnd="@drawable/ic_mic_none_white_24dp"
+                    android:text="@string/str_click_start_speak"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_record_hints"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:layout_marginTop="5dip"
+                android:background="@color/white"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_pass_question_desc"/>
+                <EditText
+                    android:id="@+id/et_pass_content"
+                    android:layout_marginTop="5dip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp14"
+                    android:hint="@string/str_required_bracket"
+                    android:inputType="textMultiLine"
+                    android:background="@null"
+                    android:minLines="4"
+                    android:gravity="top|start"
+                    android:padding="5dip"
+                    android:text="@={editPassModel.content}"
+                    android:importantForAutofill="no" tools:targetApi="o"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:orientation="horizontal">
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/OrangeButton"
+                    android:textSize="@dimen/sp16"
+                    android:onClick="@{()->editPassModel.onSaveClick()}"
+                    android:text="@string/str_save_draft"/>
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/Button"
+                    android:textSize="@dimen/sp16"
+                    android:onClick="@{()->editPassModel.onSubmitClick()}"
+                    android:text="@string/str_enter_submit"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+</layout>

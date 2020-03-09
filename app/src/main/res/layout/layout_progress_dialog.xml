@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="dialog"
+            type="com.cloudcreativity.peoplepass.base.BaseDialogImpl" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/shape_progress_dialog_white_corner5dp">
+
+        <ProgressBar
+            style="@style/myProgressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_717171"
+            android:text='@{dialog.dialogMessage !=null ?dialog.dialogMessage : @string/str_loading}' />
+    </LinearLayout>
+</layout>

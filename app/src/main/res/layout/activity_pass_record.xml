@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="recordModel"
+            type="com.cloudcreativity.peoplepass.pass.PassRecordModel" />
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tlb_record"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:titleTextColor="@color/white"
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+                app:title="@string/str_pass_record">
+            </android.support.v7.widget.Toolbar>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tl_record"
+                android:background="@color/white"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:tabTextColor="@color/gray_717171"
+                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                android:elevation="3dip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/transparent"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_record"
+                android:adapter="@{recordModel.adapter}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

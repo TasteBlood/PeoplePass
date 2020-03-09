@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <files-path
+        name="cache1"
+        path="cache" />
+    <cache-path
+        name="cache2"
+        path="cache" />
+    <external-cache-path name="cache3" path="/"/>
+    <!-- 这个是保存拍照图片的路径,必须配置。 -->
+    <external-path
+        name="images"
+        path="DCIM" />
+    <!--录音的目录-->
+    <external-path
+        name="music"
+        path="record" />
+</paths>

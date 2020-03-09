@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="indexModel"
+            type="com.cloudcreativity.peoplepass.pass.PassIndexModel" />
+    </data>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tlb_pass_index"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/str_people_pass"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+            android:background="@color/colorPrimary"
+            android:elevation="3dip"
+            app:titleTextColor="@color/white" />
+        <WebView
+            android:id="@+id/wv_passIndex"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dip">
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{()->indexModel.onLinePassClick()}"
+                android:text="@string/str_online_pass"
+                android:theme="@style/OrangeButton"/>
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{()->indexModel.onMaterialPassClick()}"
+                android:text="@string/str_material_pass"
+                android:theme="@style/Button"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+</layout>

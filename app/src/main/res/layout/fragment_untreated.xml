@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="untreatedModel"
+            type="com.cloudcreativity.peoplepass.pass.fragment.UnTreatedModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+            android:id="@+id/refreshUnTreated"
+            app:tr_head_height="50dip"
+            app:tr_enable_loadmore="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcv_unTreated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adapter="@{untreatedModel.adapter}"
+                android:scrollbars="none"/>
+        </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="@{untreatedModel.hasData?View.INVISIBLE:View.VISIBLE}"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_library_books_black_48dp"
+                android:scaleType="fitXY" />
+            <TextView
+                android:layout_marginTop="10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/gray_919191"
+                android:text="@string/str_no_record"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

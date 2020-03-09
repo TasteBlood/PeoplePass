@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="audioUtils"
+            type="com.cloudcreativity.peoplepass.utils.PlayAudioDialogUtils" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dip"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{audioUtils.title}"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:textSize="@dimen/sp16"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ProgressBar
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dip"
+                android:layout_height="8dip"
+                android:max="100"
+                android:progress="@{audioUtils.progress}"
+                android:layout_weight="1"/>
+            <android.support.v7.widget.AppCompatImageButton
+                android:layout_marginStart="5dip"
+                android:padding="5dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:onClick="@{()->audioUtils.onPlayClick()}"
+                android:src="@{audioUtils.isPlay?@drawable/ic_pause_blue_28dp:@drawable/ic_play_arrow_blue_28dp}"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:textSize="@dimen/sp16"
+            android:layout_marginTop="10dip"
+            android:onClick="@{()->audioUtils.onCloseClick()}"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/close"/>
+    </LinearLayout>
+</layout>

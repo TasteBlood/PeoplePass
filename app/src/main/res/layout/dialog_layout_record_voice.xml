@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="voiceUtils"
+            type="com.cloudcreativity.peoplepass.utils.RecordVoiceDialogUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dip"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textSize="@dimen/sp14"
+                android:text="@{voiceUtils.residueTime}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/str_total_time"
+                android:textSize="@dimen/sp14" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mic_none_gray_24dp"/>
+            <ProgressBar
+                android:layout_marginStart="5dip"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:progress="@{voiceUtils.progress}"
+                android:max="100"
+                android:layout_width="match_parent"
+                android:layout_height="10dip" />
+        </LinearLayout>
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_marginTop="20dip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Button"
+            android:textSize="16sp"
+            android:onClick="@{()->voiceUtils.onStopClick()}"
+            android:text="@string/str_stop_record"/>
+    </LinearLayout>
+</layout>

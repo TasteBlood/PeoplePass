@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>版本说明</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            -webkit-appearance: none;
+            outline: none;
+        }
+
+        *:focus{
+            -webkit-appearance: none;
+            outline: none;
+        }
+
+        *:active{
+            -webkit-appearance: none;
+            outline: none;
+        }
+        html{
+            width: 100%;
+        }
+        body{
+            background-color: #f3f3f3;
+            width: 100%;
+        }
+        .title{
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 10px;
+        }
+        .subtitle{
+            font-size: 16px;
+            margin-top: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .version-array{
+            list-style: none;
+            padding-left: 14px;
+        }
+        .version-array li{
+            margin-top: 5px ;
+        }
+
+        .ask-array{
+            list-style: none;
+            margin-top: 14px;
+        }
+
+        .ask-item{
+            margin-top: 2px;
+        }
+
+        .content{
+            background-color: white;
+            padding: 3px;
+            display: block;
+        }
+        .content .title{
+            font-size: 15px;
+            color: #515151;
+            text-align: left;
+            display: inline-block;
+        }
+        .content .answer{
+            word-break: break-all;
+            color: #717171;
+            padding: 10px;
+            display: none;
+        }
+        .content .answer.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <p class="title">版本说明</p>
+    <p class="subtitle">当前版本更新以下内容:</p>
+    <ul class="version-array">
+        <li>1、首页改版</li>
+        <li>2、新增机构简介</li>
+        <li>3、举报功能优化</li>
+    </ul>
+    <p class="subtitle" style="margin-top: 15px">常见问题:</p>
+    <ul class="ask-array">
+        <li class="ask-item">
+            <div class="content">
+                <p class="title"></p>
+                <img style="display: inline-block;float: right;margin-top: 14px;margin-right: 10px;" src="next.svg" />
+                <p class="answer"></p>
+            </div>
+        </li>
+    </ul>
+
+<script>
+
+    var asks = [
+        {title:'如何录制音频？',
+            content:'在界面上找到“点击录制”按钮，点击开始录音，录制完成后，点击试听录音，长按清除录音，重新录制'},
+        {title:'如何在地图上进行位置选择？',
+            content:'在地图界面上，点击任意位置进行位置选择；通过键盘输入地点进行位置选择；通过长按定位图标拖拽进行位置选择'},
+        {title:'忘记密码怎么办？',
+            content:'可以通过验证手机号，进行密码重置'},
+        {title:'提示“音频录制失败”怎么办？',
+            content:'通常是由于手机安全检测，关闭了录音权限，请在手机设置的权限管理中，允许APP使用录音权限即可'},
+        {title:'提示“请在手机设置中打开定位权限”怎么办？',
+            content:'通常是由于手机安全检测，关闭了定位权限，请在手机设置的权限管理中，允许APP使用定位权限即可'}
+    ];
+
+    function initClick() {
+        var eles = document.querySelectorAll(".ask-item");
+        for(var i=0;i<eles.length;i++){
+            eles[i].onclick = function (ev) {
+                var ele = ev.target.children[2];
+                try{
+                    if(ele.classList.contains("active")){
+                        ele.classList.remove("active");
+                    }else{
+                        ele.classList.add("active");
+                    }
+                }catch (e) {
+                    ele = ev.target.parentNode.children[2];
+                    if(ele.classList.contains("active")){
+                        ele.classList.remove("active");
+                    }else{
+                        ele.classList.add("active");
+                    }
+                }
+            };
+        }
+    }
+
+    function initItems() {
+        var parent = document.querySelector(".ask-array");
+        var childItem = document.querySelector(".ask-item");
+        for(var i=0;i<asks.length;i++){
+            if(i===0){
+                childItem.children[0].children[0].innerHTML = asks[i].title;
+                childItem.children[0].children[2].innerHTML = asks[i].content;
+            }else{
+                var item = childItem.cloneNode(true);
+                item.children[0].children[0].innerHTML = asks[i].title;
+                item.children[0].children[2].innerHTML = asks[i].content;
+                parent.appendChild(item);
+            }
+
+        }
+    }
+
+    window.onload = function () {
+      initItems();
+
+      initClick();
+    };
+
+</script>
+</body>
+</html>

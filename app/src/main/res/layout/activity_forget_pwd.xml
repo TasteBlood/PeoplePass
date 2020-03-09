@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="forgetModel"
+            type="com.cloudcreativity.peoplepass.loginAndRegister.ForgetPwdModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tlb_forget"
+            android:background="@color/colorPrimary"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+            app:title="@string/str_reset_pwd"
+            android:elevation="3dip"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+        <!--content widgets-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_phone"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip"
+            android:layout_marginTop="10dip"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/Theme.AppCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/str_input_phone"
+                android:drawableStart="@drawable/ic_phone_android_gray_24dp"
+                android:drawablePadding="10dip"
+                android:text="@={forgetModel.phone}"
+                android:maxLength="11"
+                android:padding="10dip"
+                android:inputType="number"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_pwd1"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/Theme.AppCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_pwd1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入新密码"
+                android:drawableStart="@drawable/ic_https_gray_24dp"
+                android:drawablePadding="10dip"
+                android:text="@={forgetModel.pwd1}"
+                android:padding="10dip"
+                android:inputType="textPassword"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_pwd2"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/Theme.AppCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_pwd2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请再次输入新密码"
+                android:drawableStart="@drawable/ic_https_gray_24dp"
+                android:drawablePadding="10dip"
+                android:text="@={forgetModel.pwd2}"
+                android:padding="10dip"
+                android:inputType="textPassword"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dip"
+            android:paddingEnd="15dip"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_verifyCode"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/Theme.AppCompat"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5">
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_verifyCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/str_input_verifycode"
+                    android:drawablePadding="10dip"
+                    android:maxLength="6"
+                    android:gravity="center"
+                    android:text="@={forgetModel.verifyCode}"
+                    android:padding="10dip"
+                    android:inputType="number"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@={forgetModel.btn_verify_text}"
+                android:clickable="@{forgetModel.is_enable}"
+                android:onClick="@{()->forgetModel.onSendVerifyClick()}"
+                android:theme="@style/Button"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dip"
+            android:layout_marginEnd="15dip"
+            android:layout_marginTop="10dip"
+            android:onClick="@{()->forgetModel.onSubmitClick()}"
+            android:text="@string/str_submit"
+            android:theme="@style/Button"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dip"
+    android:gravity="center"
+    android:elevation="3dip"
+    android:background="@color/colorPrimary">
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_main_nav_default_user_gary_28dp"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_loginOrRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_login_or_register"
+        android:layout_marginStart="5dip"
+        android:textSize="@dimen/sp18"
+        android:textColor="@color/white" />
+</LinearLayout>
